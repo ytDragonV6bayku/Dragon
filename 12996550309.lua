@@ -35,7 +35,7 @@ Tabs.Main:AddButton({
                 {
                     Title = "Cancel",
                     Callback = function()
-                        print("neden?")
+                        print("neden???")
                     end
                 }
             }
