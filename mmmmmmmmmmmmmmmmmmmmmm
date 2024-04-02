@@ -1,0 +1,41 @@
+print"pro"
+local run = function(func) func() end
+local cloneref = cloneref or function(obj) return obj end
+local vapelite
+
+local playersService = cloneref(game:GetService('Players'))
+local replicatedStorage = cloneref(game:GetService('ReplicatedStorage'))
+local runService = cloneref(game:GetService('RunService'))
+local inputService = cloneref(game:GetService('UserInputService'))
+local teleportService = cloneref(game:GetService('TeleportService'))
+local httpService = cloneref(game:GetService('HttpService'))
+local guiService = cloneref(game:GetService('GuiService'))
+local collectionService = cloneref(game:GetService('CollectionService'))
+local contextAction = cloneref(game:GetService('ContextActionService'))
+local coreGui = cloneref(game:GetService('CoreGui'))
+
+local gameCamera = workspace.CurrentCamera
+local lplr = playersService.LocalPlayer
+
+local suc, web = pcall(function() return WebSocket.connect('ws://127.0.0.1:6892/') end)
+if not suc or suc and type(web) == 'boolean' then
+    repeat 
+        suc, web = pcall(function() return WebSocket.connect('ws://127.0.0.1:6892/') end)
+        if not suc or suc and type(web) == 'boolean' then
+            print('websocket error:', web)
+        else
+            break
+        end
+        task.wait(1)
+    until suc and type(web) ~= 'boolean'
+end
+--[[
+    Setup
+    Honestly it may come to 1 point to rewrite the garbage winforms ui at some point, dealing with the old naming structure isn't easy.
+]]
+run(function()
+    vapelite = {
+        Connections = {},
+        Loaded = false, 
+        Modules = {}
+    }
