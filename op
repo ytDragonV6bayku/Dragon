@@ -1,1 +1,67 @@
+-- Gui to Lua
+-- Version: 3.2
 
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local ImageLabel = Instance.new("ImageLabel")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.085950762, 0, 0.0364077687, 0)
+Frame.Size = UDim2.new(0, 779, 0, 100)
+
+UICorner.Parent = Frame
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.883913398, 0, 0.0802774057, 0)
+ImageLabel.Size = UDim2.new(0, 82, 0, 83)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=14915583580"
+
+ImageLabel_2.Parent = Frame
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(0.00971571542, 0, 0.0802774057, 0)
+ImageLabel_2.Size = UDim2.new(0, 82, 0, 83)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=14915583580"
+ImageLabel_2.ImageColor3 = Color3.fromRGB(0, 0, 0)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.276486605, 0, 0.249750361, 0)
+TextLabel.Size = UDim2.new(0, 349, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "attached"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+-- Scripts:
+
+local function BVTMV_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	-- 10 saniye beklemek için delay fonksiyonunu kullanacağız
+	wait(4)
+	
+	-- Frame'i görünmez yapmak için Frame'in Visible özelliğini false olarak ayarlıyoruz
+	script.Parent.Visible = false
+	
+end
+coroutine.wrap(BVTMV_fake_script)()
